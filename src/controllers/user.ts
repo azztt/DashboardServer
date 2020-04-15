@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/indent */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import express from "express";
 import User from "../models/user";
 import initCRUD from "../utils/crudFactory";
@@ -21,6 +23,7 @@ const [create, , update, all, all_query, all_delete, delete_query] = initCRUD(Us
 const register = (req: Request, res: Response, next: NextFunction) => {
     req.body.privelege_level = "Unapproved_User";
     req.body.display_on_website = false;
+    // req.body.category = 'undefined';
     res.locals.no_send = true;
     create(req, res, next)
     .then((_: any) => {
@@ -57,7 +60,7 @@ const login = (req: Request, res: Response, next: NextFunction) => {
         if (!userDoc) {
             next(createError(404, "Not found", `User with entryNumber ${my_entryNumber} does not exist`));
         } else {
-            const userObject = userDoc.toObject();
+            const userObject = userDoc;
 
             // Get the hashed password
             const passwordHash = userObject.password;

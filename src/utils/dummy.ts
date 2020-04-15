@@ -86,6 +86,10 @@ const users = [
     category: "Senior Undergraduate",
     intro: "Satna",
     display_on_website: false,
+    // url: new Map([
+    //   ["github", "lol"],
+    //   ["photo", "lol"],
+    // ]),
     url: {
       "github": "lol",
       "photo": "lol"
